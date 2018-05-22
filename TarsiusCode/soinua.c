@@ -1,8 +1,5 @@
 #include "funtzioak.h"
 
-void musicUnload(void);
-void soundsUnload();
-
 Mix_Chunk* soinuak[MAX_SOUNDS];
 int soinuKop = 0;
 Mix_Music * musika=NULL;
@@ -102,17 +99,12 @@ void audioTerminate(void)
 }
 
 void initSound() {
-	loadSound(".\\Sounds\\NPCs\\Bosses\\BossDefault.wav");
-	loadSound(".\\Sounds\\NPCs\\Bosses\\BossHielo.wav");
-	loadSound(".\\Sounds\\NPCs\\Bosses\\BossLava.wav");
-	loadSound(".\\Sounds\\NPCs\\Bosses\\BossJungla.wav");
-	loadSound(".\\Sounds\\NPCs\\Bosses\\BossFinal.wav");
-	loadSound(".\\Sounds\\NPCs\\Enemies\\BichoDefault.wav");
-	loadSound(".\\Sounds\\NPCs\\Enemies\\BichoHielo.wav");
-	loadSound(".\\Sounds\\NPCs\\Enemies\\BichoLava.wav");
-	loadSound(".\\Sounds\\NPCs\\Enemies\\BichoJungla.wav");
-	loadSound(".\\Sounds\\SoundEffects\\door.wav");
-
-
-	loadTheMusic(".\\Sounds\\Music\\Soundtrack1.wav");
+	loadSound("do1.wav");
+	loadSound("re1.wav");
+	loadSound("mi1.wav");
+	loadSound("fa1.wav");
+	loadSound("sol1.wav");
+	loadSound("la1.wav");
+	loadSound("si1.wav");
+	loadSound("do2.wav");
 }

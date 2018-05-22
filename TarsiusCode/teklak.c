@@ -17,20 +17,28 @@ int teklaDetekzioa(void) {
 				close_requested = 0;
 				break;
 			case SDL_SCANCODE_A:
+				playSound(0);
 				break;
 			case SDL_SCANCODE_S:
+				playSound(1);
 				break;
 			case SDL_SCANCODE_D:
+				playSound(2);
 				break;
 			case SDL_SCANCODE_F:
+				playSound(3);
 				break;
 			case SDL_SCANCODE_G:
+				playSound(4);
 				break;
 			case SDL_SCANCODE_H:
+				playSound(5);
 				break;
 			case SDL_SCANCODE_J:
+				playSound(6);
 				break;
 			case SDL_SCANCODE_K:
+				playSound(7);
 				break;
 			default:
 				break;

@@ -14,6 +14,10 @@ window = SDL_CreateWindow(
 	SDL_WINDOW_SHOWN
 );
 int closeRequested=1;
+
+audioInit();
+initSound();
+
 printf("Hello Tarsius\n");
 while(closeRequested){
 	closeRequested=teklaDetekzioa();
