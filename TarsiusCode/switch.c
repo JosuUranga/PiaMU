@@ -1,7 +1,7 @@
 
 void instrumentuNotak(int aukera) {
 
-	switch(aukera) {
+	/*switch(aukera) {
 	case 1:
 		doSoinua();
 		break;
@@ -23,14 +23,14 @@ void instrumentuNotak(int aukera) {
 	case 7:
 		siSoinua();
 		break;
-	}
+	}*/
 }
 
 void instrumentuakAukeratu(int aukera) {
-	switch(aukera) {
+/*	switch(aukera) {
 	case 1:
 		piano();
 		break;
 
-	}
+	}*/
 }
