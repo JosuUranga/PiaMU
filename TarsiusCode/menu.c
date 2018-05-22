@@ -1,7 +1,7 @@
 #include "funtzioak.h"
 
 void pianoMenu(int aukera) {
-	/*switch(aukera){
+	switch(aukera){
 	case 1:
 		soinuaGrabatu();
 		break;
@@ -14,5 +14,5 @@ void pianoMenu(int aukera) {
 	case 4:
 		instrumentuaAldatu();
 		break;
-	}*/
+	}
 }
