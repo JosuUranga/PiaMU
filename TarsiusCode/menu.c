@@ -1,5 +1,5 @@
 #include "funtzioak.h"
-
+/*
 void pianoMenu(int aukera) {
 	switch(aukera){
 	case 1:
@@ -16,3 +16,4 @@ void pianoMenu(int aukera) {
 		break;
 	}
 }
+*/

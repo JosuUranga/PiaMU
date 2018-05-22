@@ -3,7 +3,7 @@
 
 
 
-
+/*
 void soinuakGrabatu(SOINUAKGRABATU soinuak){
   SOINUAKGRABATU *aux1;
   aux1=*(soinuak);
@@ -46,6 +46,7 @@ void soinuaJo(){
      case 6:
      break;
      case 7:
+     playsound(asdsad);
      break;
      default:
      break;
@@ -93,3 +94,4 @@ void soinuaJo(){
    break;
  }
 }
+*/
