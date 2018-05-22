@@ -3,16 +3,16 @@
 void pianoMenu(int aukera) {
 	switch(aukera){
 	case 1:
-		soinuaGrabatu();
+		//soinuaGrabatu();
 		break;
 	case 2:
-		soinuaErreproduzitu();
+		//soinuaErreproduzitu();
 		break;
 	case 3:
-		instrumentuaJo();
+		//instrumentuaJo();
 		break;
 	case 4:
-		instrumentuaAldatu();
+		//instrumentuaAldatu();
 		break;
 	}
 }

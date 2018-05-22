@@ -1,6 +1,7 @@
 #ifndef FUNTZIOAK_H
 #define FUNTZIOAK_H
 #define MAX_KAR 120
+#define MAX_SOUNDS 15
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

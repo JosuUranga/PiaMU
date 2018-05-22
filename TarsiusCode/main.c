@@ -9,8 +9,8 @@ window = SDL_CreateWindow(
 	"PianoTarsius",
 	SDL_WINDOWPOS_CENTERED,
 	SDL_WINDOWPOS_CENTERED,
-	640,
-	480,
+	0,
+	0,
 	SDL_WINDOW_SHOWN
 );
 int closeRequested=1;
