@@ -6,4 +6,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "SDL2/SDL_mixer.h"
+typedef struct soinuakGrabatu{
+  int soinua;
+  struct soinuakGrabatu *hurrengoSoinua;
+}SOINUAKGRABATU;
+
 #endif
