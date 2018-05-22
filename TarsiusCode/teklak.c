@@ -40,6 +40,9 @@ int teklaDetekzioa(void) {
 			case SDL_SCANCODE_K:
 				playSound(7);
 				break;
+			case SDL_SCANCODE_M:
+				toggleMusic();
+				break;
 			default:
 				break;
 			}

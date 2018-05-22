@@ -99,12 +99,13 @@ void audioTerminate(void)
 }
 
 void initSound() {
-	loadSound("do1.wav");
-	loadSound("re1.wav");
-	loadSound("mi1.wav");
-	loadSound("fa1.wav");
-	loadSound("sol1.wav");
-	loadSound("la1.wav");
-	loadSound("si1.wav");
-	loadSound("do2.wav");
+	loadSound("piano/do1.wav");
+	loadSound("piano/re1.wav");
+	loadSound("piano/mi1.wav");
+	loadSound("piano/fa1.wav");
+	loadSound("piano/sol1.wav");
+	loadSound("piano/la1.wav");
+	loadSound("piano/si1.wav");
+	loadSound("piano/do2.wav");
+	loadTheMusic("base1.wav");
 }
