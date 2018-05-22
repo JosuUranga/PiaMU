@@ -1,20 +1,21 @@
 #include "funtzioak.h"
 
 
-SDL_Window* window = NULL;
 int main (void){
+SDL_Window* window = NULL;
+
 SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS);
 window = SDL_CreateWindow(
 	"PianoTarsius",
 	SDL_WINDOWPOS_CENTERED,
 	SDL_WINDOWPOS_CENTERED,
-	120,
-	80,
+	640,
+	480,
 	SDL_WINDOW_SHOWN
 );
 int closeRequested=1;
 printf("Hello Tarsius\n");
-while(!closeRequested){
+while(closeRequested){
 	closeRequested=teklaDetekzioa();
 	SDL_Delay(1000/60);
 }

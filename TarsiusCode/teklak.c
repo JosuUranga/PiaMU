@@ -8,30 +8,29 @@ int teklaDetekzioa(void) {
 		switch (event.type)
 		{
 		case SDL_QUIT:
-      close_requested = 0;
+			close_requested = 0;
 			break;
 		case SDL_KEYDOWN:
 			switch (event.key.keysym.scancode)
 			{
-			case SDL_SCANCODE_1:
-				break;
-			case SDL_SCANCODE_2:
-				break;
-			case SDL_SCANCODE_W:
-			case SDL_SCANCODE_UP:
-				w=1;
+			case SDL_SCANCODE_Q:
+				close_requested = 0;
 				break;
 			case SDL_SCANCODE_A:
-			case SDL_SCANCODE_LEFT:
 				break;
 			case SDL_SCANCODE_S:
-				s=1;
-			case SDL_SCANCODE_DOWN:
 				break;
 			case SDL_SCANCODE_D:
-			case SDL_SCANCODE_RIGHT:
 				break;
-			case SDL_SCANCODE_ESCAPE:
+			case SDL_SCANCODE_F:
+				break;
+			case SDL_SCANCODE_G:
+				break;
+			case SDL_SCANCODE_H:
+				break;
+			case SDL_SCANCODE_J:
+				break;
+			case SDL_SCANCODE_K:
 				break;
 			default:
 				break;
@@ -41,25 +40,21 @@ int teklaDetekzioa(void) {
 		case SDL_KEYUP:
 			switch (event.key.keysym.scancode)
 			{
-			case SDL_SCANCODE_1:
-				break;
-			case SDL_SCANCODE_2:
-				break;
-			case SDL_SCANCODE_W:
-			case SDL_SCANCODE_UP:
-				w=0;
-				break;
 			case SDL_SCANCODE_A:
-			case SDL_SCANCODE_LEFT:
 				break;
 			case SDL_SCANCODE_S:
-				s=0;
-			case SDL_SCANCODE_DOWN:
 				break;
 			case SDL_SCANCODE_D:
-			case SDL_SCANCODE_RIGHT:
 				break;
-			case SDL_SCANCODE_ESCAPE:
+			case SDL_SCANCODE_F:
+				break;
+			case SDL_SCANCODE_G:
+				break;
+			case SDL_SCANCODE_H:
+				break;
+			case SDL_SCANCODE_J:
+				break;
+			case SDL_SCANCODE_K:
 				break;
 			default:
 				break;
