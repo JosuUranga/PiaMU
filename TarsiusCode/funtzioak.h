@@ -10,5 +10,5 @@ typedef struct soinuakGrabatu{
   int soinua;
   struct soinuakGrabatu *hurrengoSoinua;
 }SOINUAKGRABATU;
-void movement(void);
+void teklaDetekzioa(void);
 #endif
