@@ -10,5 +10,9 @@ typedef struct soinuakGrabatu{
   int soinua;
   struct soinuakGrabatu *hurrengoSoinua;
 }SOINUAKGRABATU;
-void teklaDetekzioa(void);
+int teklaDetekzioa(void);
+void instrumentuakAukeratu(int aukera);
+void pianoMenu(int aukera);
+void instrumentuNotak(int aukera);
+int teklaDetekzioa(void);
 #endif
