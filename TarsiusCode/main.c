@@ -17,10 +17,13 @@ int closeRequested=1;
 
 audioInit();
 initSound();
-
+int notakSakatuta[MAX_NOTAK];
+for	(int i=0; i<MAX_NOTAK;i++){
+	notakSakatuta[i]=0;
+}
 printf("Hello Tarsius\n");
 while(closeRequested){
-	closeRequested=teklaDetekzioa();
+	closeRequested=teklaDetekzioa(notakSakatuta);
 	SDL_Delay(1000/60);
 }
 SDL_DestroyWindow(window);

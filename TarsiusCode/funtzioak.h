@@ -2,6 +2,7 @@
 #define FUNTZIOAK_H
 #define MAX_KAR 120
 #define MAX_SOUNDS 15
+#define MAX_NOTAK 8
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -13,7 +14,7 @@ typedef struct soinuakGrabatu{
   struct soinuakGrabatu *hurrengoSoinua;
 }SOINUAKGRABATU;
 
-int teklaDetekzioa(void);
+int teklaDetekzioa(int notakSakatuta[]);
 void pianoMenu(int aukera);
 void instrumentuakAukeratu(int aukera);
 void instrumentuNotak(int aukera);
