@@ -51,6 +51,7 @@ int playMusic(void)
 {
   if (musika != NULL)
   {
+	Mix_VolumeMusic(40);
     Mix_PlayMusic(musika, -1);
     return 1;
   }
@@ -100,12 +101,13 @@ void audioTerminate(void)
 }
 
 void initSound() {
-	loadSound("piano/do1.wav");
-	loadSound("piano/re1.wav");
-	loadSound("piano/mi1.wav");
-	loadSound("piano/fa1.wav");
-	loadSound("piano/sol1.wav");
-	loadSound("piano/la1.wav");
-	loadSound("piano/si1.wav");
-	loadSound("piano/do2.wav");
+	loadSound("instrumentuak/piano/do1.wav");
+	loadSound("instrumentuak/piano/re1.wav");
+	loadSound("instrumentuak/piano/mi1.wav");
+	loadSound("instrumentuak/piano/fa1.wav");
+	loadSound("instrumentuak/piano/sol1.wav");
+	loadSound("instrumentuak/piano/la1.wav");
+	loadSound("instrumentuak/piano/si1.wav");
+	loadSound("instrumentuak/piano/do2.wav");
+	loadTheMusic("bases/metronomo.wav");
 }

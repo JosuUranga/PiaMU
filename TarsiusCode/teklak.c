@@ -14,6 +14,18 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 			case SDL_SCANCODE_Q:
 				modua = 0;
 				break;
+			case SDL_SCANCODE_1:
+				instrumentuakAukeratu(1);
+				break;
+			case SDL_SCANCODE_2:
+				instrumentuakAukeratu(2);
+				break;
+			case SDL_SCANCODE_3:
+				instrumentuakAukeratu(3);
+				break;
+			case SDL_SCANCODE_4:
+				instrumentuakAukeratu(4);
+				break;
 			case SDL_SCANCODE_A:
 				if(notakSakatuta[0]==0){
 					playSound(0,0);
@@ -100,6 +112,15 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				break;
 			case SDL_SCANCODE_R:
 				soinuaErreproduzitu(*soinuak);
+				break;
+			case SDL_SCANCODE_M:
+				baseaAukeratu(1);
+				break;
+			case SDL_SCANCODE_X:
+				baseaAukeratu(2);
+				break;
+			case SDL_SCANCODE_SPACE:
+				toggleMusic();
 				break;
 			default:
 				break;
