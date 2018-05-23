@@ -34,7 +34,7 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					bistaratuSoinuak(*soinuak);
 				}
 				if(modua == 3){
-					if(gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 0);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 0);
 				}
 				(notakSakatuta[0])=1;
 				}
@@ -46,7 +46,7 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					soinuakGrabatu(1,soinuak);
 				}
 				if(modua == 3){
-					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 1);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 1);
 				}
 
 				notakSakatuta[1]=1;
@@ -59,7 +59,7 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					soinuakGrabatu(2,soinuak);
 				}
 				if(modua == 3){
-					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 2);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 2);
 				}
 				notakSakatuta[2]=1;
 				}
@@ -71,7 +71,7 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					soinuakGrabatu(3,soinuak);
 				}
 				if(modua == 3){
-					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 3);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 3);
 				}
 				notakSakatuta[3]=1;
 				}
@@ -83,8 +83,8 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					soinuakGrabatu(4,soinuak);
 				}
 				if(modua == 3){
-					printf("%d\n",gameOver);
-					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 4);
+					printf("%d\n",*gameOver);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 4);
 				}
 				notakSakatuta[4]=1;
 				}
@@ -96,7 +96,7 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					soinuakGrabatu(5,soinuak);
 				}
 				if(modua == 3){
-					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 5);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 5);
 				}
 				notakSakatuta[5]=1;
 				}
@@ -108,7 +108,7 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					soinuakGrabatu(6,soinuak);
 				}
 				if(modua == 3){
-					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 6);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 6);
 				}
 				notakSakatuta[6]=1;
 				}
@@ -120,7 +120,7 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 					soinuakGrabatu(7,soinuak);
 				}
 				if(modua == 3){
-					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 7);
+					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 7);
 				}
 				notakSakatuta[7]=1;
 				}

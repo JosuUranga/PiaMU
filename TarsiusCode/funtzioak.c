@@ -79,15 +79,18 @@ int simon(int gameOver,SOINUAKGRABATU **soinuakSimon){
 	int x;
 	if(gameOver==0){
 		x=rand()%8;
-		aux->diferentzia=0.005;
+		aux->diferentzia=0.5;
 		aux->soinua=x;
 		printf("%d\n",x);
 		aux->hurrengoSoinua=NULL;
 		if(aux2 == NULL) {
+			printf("nepe\n");
 			sartuHasieran(soinuakSimon,aux);
 		}
 		else{
+
 			sartuSoinuakBuztanean(*soinuakSimon,aux);
+			printf("gordocabron\n");
 		}
 		soinuaErreproduzitu(*soinuakSimon);
 		gameOver=2;
@@ -97,23 +100,18 @@ int simon(int gameOver,SOINUAKGRABATU **soinuakSimon){
 int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 	SOINUAKGRABATU *aux = soinuakSimon;
 	int gameOver=2;
-	printf("%d\n", nota);
 	while(aux->hurrengoSoinua != NULL) aux=aux->hurrengoSoinua;
-
 	aux->noizSakatu=(clock_t)nota;
-	printf("%d\n", (int)aux->noizSakatu);
 	aux=soinuakSimon;
 	while(aux!=NULL && aux->soinua == (int)aux->noizSakatu){
 		aux= aux->hurrengoSoinua;
-	}
-	if(aux->soinua != (int)aux->noizSakatu){
-		gameOver =1;
-		printf("malo\n");
-	}
-	else {
-		printf("bueno\n");
-
 		gameOver =0;
 	}
+	if(aux!=NULL){
+	if(aux->soinua != (int)aux->noizSakatu){
+		gameOver =1;
+	}
+	}
+	printf("%d\n",gameOver);
 	return gameOver;
 }
