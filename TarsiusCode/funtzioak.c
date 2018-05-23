@@ -34,7 +34,7 @@ void sartuSoinuakBuztanean(SOINUAKGRABATU *burua, SOINUAKGRABATU*berria) {
 
 		ptrAux = ptrAux->hurrengoSoinua;
 	}
-	berria->diferentzia=(double)(berria->noizSakatu - ptrAux->noizSakatu)*(0.00011764);
+	berria->diferentzia=((double)(berria->noizSakatu - ptrAux->noizSakatu)/CLOCKS_PER_SEC);
 	ptrAux->hurrengoSoinua = berria;
 }
 
@@ -55,7 +55,6 @@ void soinuaErreproduzitu(SOINUAKGRABATU *soinuak){
 	SOINUAKGRABATU* ptr;
 	ptr = soinuak;
 	while (ptr != NULL) {
-		printf("%i\n",((int)((ptr->diferentzia)*1000)));
 		SDL_Delay((int)((ptr->diferentzia)*1000));
 		playSound(ptr->soinua,ptr->soinua);
 		ptr = ptr->hurrengoSoinua;
@@ -72,4 +71,49 @@ void garbituZerrenda(SOINUAKGRABATU** burua) {
     free(freeptr);
   }
   *burua = NULL;
+}
+int simon(int gameOver,SOINUAKGRABATU **soinuakSimon){
+	SOINUAKGRABATU*aux;
+	SOINUAKGRABATU*aux2=*soinuakSimon;
+	aux=(SOINUAKGRABATU*)malloc(sizeof(SOINUAKGRABATU));
+	int x;
+	if(gameOver==0){
+		x=rand()%8;
+		aux->diferentzia=0.005;
+		aux->soinua=x;
+		printf("%d\n",x);
+		aux->hurrengoSoinua=NULL;
+		if(aux2 == NULL) {
+			sartuHasieran(soinuakSimon,aux);
+		}
+		else{
+			sartuSoinuakBuztanean(*soinuakSimon,aux);
+		}
+		soinuaErreproduzitu(*soinuakSimon);
+		gameOver=2;
+	}
+	return gameOver;
+}
+int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
+	SOINUAKGRABATU *aux = soinuakSimon;
+	int gameOver=2;
+	printf("%d\n", nota);
+	while(aux->hurrengoSoinua != NULL) aux=aux->hurrengoSoinua;
+
+	aux->noizSakatu=(clock_t)nota;
+	printf("%d\n", (int)aux->noizSakatu);
+	aux=soinuakSimon;
+	while(aux!=NULL && aux->soinua == (int)aux->noizSakatu){
+		aux= aux->hurrengoSoinua;
+	}
+	if(aux->soinua != (int)aux->noizSakatu){
+		gameOver =1;
+		printf("malo\n");
+	}
+	else {
+		printf("bueno\n");
+
+		gameOver =0;
+	}
+	return gameOver;
 }

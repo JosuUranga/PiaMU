@@ -18,7 +18,7 @@ typedef struct soinuakGrabatu{
   struct soinuakGrabatu *hurrengoSoinua;
 }SOINUAKGRABATU;
 
-int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak);
+int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *gameOver, SOINUAKGRABATU **soinuakSimon);
 void pianoMenu(int aukera);
 void instrumentuakAukeratu(int aukera);
 void instrumentuNotak(int aukera);
@@ -46,4 +46,6 @@ void launchpad();
 void baseaAukeratu(int aukera);
 void metro();
 void saxo();
+int simon(int gameOver,SOINUAKGRABATU **soinuakSimon);
+int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota);
 #endif

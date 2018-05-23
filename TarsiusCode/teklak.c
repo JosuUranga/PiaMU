@@ -1,6 +1,6 @@
 #include "funtzioak.h"
 
-int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
+int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *gameOver,SOINUAKGRABATU **soinuakSimon) {
 	SDL_Event event;
 	SDL_PollEvent(&event);
 		switch (event.type)
@@ -28,12 +28,15 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				break;
 			case SDL_SCANCODE_A:
 				if(notakSakatuta[0]==0){
-					playSound(0,0);
-					if(modua==2){
-						soinuakGrabatu(0,soinuak);
-						bistaratuSoinuak(*soinuak);
-					}
-					(notakSakatuta[0])=1;
+				playSound(0,0);
+				if(modua==2){
+					soinuakGrabatu(0,soinuak);
+					bistaratuSoinuak(*soinuak);
+				}
+				if(modua == 3){
+					if(gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 0);
+				}
+				(notakSakatuta[0])=1;
 				}
 				break;
 			case SDL_SCANCODE_S:
@@ -42,6 +45,10 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				if(modua==2){
 					soinuakGrabatu(1,soinuak);
 				}
+				if(modua == 3){
+					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 1);
+				}
+
 				notakSakatuta[1]=1;
 				}
 				break;
@@ -50,6 +57,9 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				playSound(2,2);
 				if(modua==2){
 					soinuakGrabatu(2,soinuak);
+				}
+				if(modua == 3){
+					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 2);
 				}
 				notakSakatuta[2]=1;
 				}
@@ -60,6 +70,9 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				if(modua==2){
 					soinuakGrabatu(3,soinuak);
 				}
+				if(modua == 3){
+					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 3);
+				}
 				notakSakatuta[3]=1;
 				}
 				break;
@@ -68,6 +81,10 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				playSound(4,4);
 				if(modua==2){
 					soinuakGrabatu(4,soinuak);
+				}
+				if(modua == 3){
+					printf("%d\n",gameOver);
+					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 4);
 				}
 				notakSakatuta[4]=1;
 				}
@@ -78,6 +95,9 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				if(modua==2){
 					soinuakGrabatu(5,soinuak);
 				}
+				if(modua == 3){
+					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 5);
+				}
 				notakSakatuta[5]=1;
 				}
 				break;
@@ -87,6 +107,9 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				if(modua==2){
 					soinuakGrabatu(6,soinuak);
 				}
+				if(modua == 3){
+					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 6);
+				}
 				notakSakatuta[6]=1;
 				}
 				break;
@@ -95,6 +118,9 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				playSound(7,7);
 				if(modua==2){
 					soinuakGrabatu(7,soinuak);
+				}
+				if(modua == 3){
+					if(gameOver==2) gameOver = sartuSimon(*soinuakSimon, 7);
 				}
 				notakSakatuta[7]=1;
 				}
@@ -118,6 +144,12 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				break;
 			case SDL_SCANCODE_X:
 				baseaAukeratu(2);
+				break;
+			case SDL_SCANCODE_T:
+				if(modua != 3){
+					modua = 3;
+
+				}
 				break;
 			case SDL_SCANCODE_SPACE:
 				toggleMusic();

@@ -13,12 +13,13 @@ window = SDL_CreateWindow(
 	0,
 	SDL_WINDOW_SHOWN
 );
+srand((unsigned int)time(0));
 int modua=1;
-
+int gameOver = 0;
 audioInit();
 initSound();
-SOINUAKGRABATU *soinuak;
-soinuak=NULL;
+SOINUAKGRABATU *soinuak=NULL;
+SOINUAKGRABATU *soinuakSimon=NULL;
 int notakSakatuta[MAX_NOTAK];
 for	(int i=0; i<MAX_NOTAK;i++){
 	notakSakatuta[i]=0;
@@ -26,9 +27,13 @@ for	(int i=0; i<MAX_NOTAK;i++){
 printf("Hello Tarsius\n");
 
 while(modua>0){
-	modua=teklaDetekzioa(notakSakatuta,modua,&soinuak);
-	SDL_Delay(1000/60);
-
+	modua=teklaDetekzioa(notakSakatuta,modua,&soinuak, &gameOver, &soinuakSimon);
+	if(modua == 3){
+		gameOver = simon(gameOver, &soinuakSimon);
+		if(gameOver == 1){
+		modua=1;
+		}
+	}
 }
 SDL_DestroyWindow(window);
 SDL_Quit();
