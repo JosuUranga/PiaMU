@@ -13,18 +13,22 @@ window = SDL_CreateWindow(
 	0,
 	SDL_WINDOW_SHOWN
 );
-int closeRequested=1;
+int modua=1;
 
 audioInit();
 initSound();
+SOINUAKGRABATU *soinuak;
+soinuak=NULL;
 int notakSakatuta[MAX_NOTAK];
 for	(int i=0; i<MAX_NOTAK;i++){
 	notakSakatuta[i]=0;
 }
 printf("Hello Tarsius\n");
-while(closeRequested){
-	closeRequested=teklaDetekzioa(notakSakatuta);
+
+while(modua>0){
+	modua=teklaDetekzioa(notakSakatuta,modua,&soinuak);
 	SDL_Delay(1000/60);
+
 }
 SDL_DestroyWindow(window);
 SDL_Quit();

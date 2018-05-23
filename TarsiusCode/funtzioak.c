@@ -3,95 +3,73 @@
 
 
 
-/*
-void soinuakGrabatu(SOINUAKGRABATU soinuak){
+
+void soinuakGrabatu(int nota,SOINUAKGRABATU **soinuak){
   SOINUAKGRABATU *aux1;
   aux1=*(soinuak);
   SOINUAKGRABATU *aux2;
-  aux2=NULL;
-  if(soinuak!=NULL){
-    while (aux1==NULL) {
-      aux2=aux1->hurrengoSoinua;
-      free(aux1);
-      aux1=aux2;
-    }
-  }
-  while (stop!=0) {
-    instrumentuakAukeratu(instrumentua) // ELEGIR INSTRUMENTO
-    instrumentuNotak(nota)      //ELEGIR NOTA DEPENDIENTE DEL INSTRUMENTO
-    instrumentuaJo(instrumentua,nota); //TOCAR LA NOTA DEPENDIENDO DEL INSTRUMENTO Y NOTA
-    aux1=(SOINUAKGRABATU)malloc(sizeof(SOINUAKGRABATU));
-    if (aux==NULL) {
-      sartuHasieran(aux,instrumentua,nota);
-    }else  sartuBuztanean(aux1,instrumentua,nota)//IDENTIFICADOR DE LA TECLA
+  aux2=(SOINUAKGRABATU*)malloc(sizeof(SOINUAKGRABATU));
+  aux2->soinua=nota;
+  aux2->hurrengoSoinua=NULL;
+  if (aux1==NULL) {
+    aux2->noizSakatu=clock();
+    aux2->diferentzia=0;
+    sartuHasieran(soinuak,aux2);
+  }else  {
+	aux2->noizSakatu=clock();
+    sartuSoinuakBuztanean(*soinuak,aux2);
   }
 }
 
-void soinuaJo(){
- int instrumentua=instrumentuakAukeratu();
- int nota=instrumentuNotak();
- switch (instrumentua) {
-   case 1:
-   switch (nota) {
-     case 1:
-     break;
-     case 2:
-     break;
-     case 3:
-     break;
-     case 4:
-     break;
-     case 5:
-     break;
-     case 6:
-     break;
-     case 7:
-     playsound(asdsad);
-     break;
-     default:
-     break;
-   }
-   break;
-   case 2:
-   switch (nota) {
-     case 1:
-     break;
-     case 2:
-     break;
-     case 3:
-     break;
-     case 4:
-     break;
-     case 5:
-     break;
-     case 6:
-     break;
-     case 7:
-     break;
-     default:
-     break;
-    }
-   break;
-   case 3:
-   switch (nota) {
-     case 1:
-     break;
-     case 2:
-     break;
-     case 3:
-     break;
-     case 4:
-     break;
-     case 5:
-     break;
-     case 6:
-     break;
-     case 7:
-     break;
-     default:
-     break;
-    }
-   break;
- }
+
+
+void sartuHasieran(SOINUAKGRABATU** burua, SOINUAKGRABATU *ptrBerria) {
+	ptrBerria->hurrengoSoinua = *burua;
+	*(burua) = ptrBerria;
 }
-*/
+void sartuSoinuakBuztanean(SOINUAKGRABATU *burua, SOINUAKGRABATU*berria) {
+	SOINUAKGRABATU*ptrAux = NULL;
+	ptrAux = burua;
+	while (ptrAux->hurrengoSoinua != NULL) {
+
+		ptrAux = ptrAux->hurrengoSoinua;
+	}
+	berria->diferentzia=(double)(berria->noizSakatu - ptrAux->noizSakatu)*(0.00011764);
+	ptrAux->hurrengoSoinua = berria;
+}
+
+void bistaratuSoinuak(SOINUAKGRABATU* burua) {
+	SOINUAKGRABATU* ptr;
+	ptr = burua;
+	while (ptr != NULL) {
+		bistaratuSoinuaBat(*ptr);
+		ptr = ptr->hurrengoSoinua;
+	}
+}
+void bistaratuSoinuaBat(SOINUAKGRABATU pelikula) {
+	printf("%i,%lf\n",pelikula.soinua,pelikula.diferentzia);
+}
+
+
+void soinuaErreproduzitu(SOINUAKGRABATU *soinuak){
+	SOINUAKGRABATU* ptr;
+	ptr = soinuak;
+	while (ptr != NULL) {
+		printf("%i\n",((int)((ptr->diferentzia)*1000)));
+		SDL_Delay((int)((ptr->diferentzia)*1000));
+		playSound(ptr->soinua,ptr->soinua);
+		ptr = ptr->hurrengoSoinua;
+	}
+}
+
+void garbituZerrenda(SOINUAKGRABATU** burua) {
+  SOINUAKGRABATU* aux;
+  SOINUAKGRABATU* freeptr;
+  aux = *burua;
+  while (aux->hurrengoSoinua != NULL) {
+    freeptr = aux;
+    aux = aux->hurrengoSoinua;
+    free(freeptr);
+  }
+  *burua = NULL;
+}
