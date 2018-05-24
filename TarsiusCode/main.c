@@ -35,6 +35,8 @@ while(modua>0){
 		}
 	}
 }
+
+audioTerminate();
 SDL_DestroyWindow(window);
 SDL_Quit();
 return 0;

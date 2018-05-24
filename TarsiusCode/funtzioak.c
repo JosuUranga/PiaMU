@@ -1,9 +1,5 @@
 #include "funtzioak.h"
 
-
-
-
-
 void soinuakGrabatu(int nota,SOINUAKGRABATU **soinuak){
   SOINUAKGRABATU *aux1;
   aux1=*(soinuak);
@@ -54,6 +50,7 @@ void bistaratuSoinuaBat(SOINUAKGRABATU pelikula) {
 void soinuaErreproduzitu(SOINUAKGRABATU *soinuak){
 	SOINUAKGRABATU* ptr;
 	ptr = soinuak;
+
 	while (ptr != NULL) {
 		SDL_Delay((int)((ptr->diferentzia)*1000));
 		playSound(ptr->soinua,ptr->soinua);
