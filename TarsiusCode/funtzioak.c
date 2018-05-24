@@ -93,8 +93,12 @@ int simon(int gameOver,SOINUAKGRABATU **soinuakSimon){
 			}
 			aux2->hurrengoSoinua = aux;
 		}
+		SDL_Delay(500);
+		playSound(9,8);
+		SDL_Delay(1500);
 		soinuaErreproduzitu(*soinuakSimon);
 		gameOver=2;
+
 	}
 	return gameOver;
 }
@@ -104,14 +108,24 @@ int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 	while (aux->noizSakatu!=0){
 		aux=aux->hurrengoSoinua;
 		kont++;
-		if(kont==10) gameOver=1;
+		if(kont==5) {
+			SDL_Delay(500);
+			simonSoinuak();
+			playSound(10,9);
+			SDL_Delay(1500);
+			gameOver=1;
+		}
 	}
 	aux->noizSakatu=(clock_t)nota;
 	if(aux->soinua != (int)aux->noizSakatu){
 		gameOver =1;
+		SDL_Delay(500);
+		simonSoinuak();
+		playSound(11,10);
+
 	}
 	else {
-		if(aux->hurrengoSoinua==NULL) {
+		if(aux->hurrengoSoinua==NULL&&gameOver!=1) {
 			aux=soinuakSimon;
 			while(aux!=NULL){
 				aux->noizSakatu=0;

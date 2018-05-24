@@ -24,8 +24,6 @@ int notakSakatuta[MAX_NOTAK];
 for	(int i=0; i<MAX_NOTAK;i++){
 	notakSakatuta[i]=0;
 }
-printf("Hello Tarsius\n");
-
 while(modua>0){
 	modua=teklaDetekzioa(notakSakatuta,modua,&soinuak, &gameOver, &soinuakSimon);
 	if(modua == 3){

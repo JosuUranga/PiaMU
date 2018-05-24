@@ -101,7 +101,7 @@ void audioTerminate(void)
 }
 
 void initSound() {
-	Mix_AllocateChannels(10);
+	Mix_AllocateChannels(12);
 	loadSound("instrumentuak/piano/do1.wav");
 	loadSound("instrumentuak/piano/re1.wav");
 	loadSound("instrumentuak/piano/mi1.wav");
@@ -110,5 +110,7 @@ void initSound() {
 	loadSound("instrumentuak/piano/la1.wav");
 	loadSound("instrumentuak/piano/si1.wav");
 	loadSound("instrumentuak/piano/do2.wav");
+	loadSound("miren/pianoa.wav");
+	loadSound("miren/ximon.wav");
 	loadTheMusic("bases/metronomo.wav");
 }

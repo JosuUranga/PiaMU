@@ -2,7 +2,7 @@
 #define FUNTZIOAK_H
 #define MAX_KAR 120
 #define MAX_SOUNDS 15
-#define MAX_NOTAK 8
+#define MAX_NOTAK 15
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -53,4 +53,5 @@ void metro();
 void saxo();
 int simon(int gameOver,SOINUAKGRABATU **soinuakSimon);
 int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota);
+void simonSoinuak(void);
 #endif

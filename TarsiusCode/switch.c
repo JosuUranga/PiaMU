@@ -57,6 +57,8 @@ void piano(){
 	loadSound("instrumentuak/piano/si1.wav");
 	loadSound("instrumentuak/piano/do2.wav");
 	loadSound("miren/pianoa.wav");
+	loadSound("miren/ximon.wav");
+
 }
 
 void organo(){
@@ -71,6 +73,7 @@ void organo(){
 	loadSound("instrumentuak/organo/si1.wav");
 	loadSound("instrumentuak/organo/do2.wav");
 	loadSound("miren/organoa.wav");
+	loadSound("miren/ximon.wav");
 }
 
 void guitarra(){
@@ -85,6 +88,7 @@ void guitarra(){
 	loadSound("instrumentuak/guitarra/si1.wav");
 	loadSound("instrumentuak/guitarra/do2.wav");
 	loadSound("miren/kitarra.wav");
+	loadSound("miren/ximon.wav");
 }
 
 void launchpad(){
@@ -99,6 +103,7 @@ void launchpad(){
 	loadSound("instrumentuak/launchpad/si1.wav");
 	loadSound("instrumentuak/launchpad/do2.wav");
 	loadSound("miren/launchpad.wav");
+	loadSound("miren/ximon.wav");
 }
 
 void ahotsak(){
@@ -113,4 +118,10 @@ void ahotsak(){
 	loadSound("instrumentuak/ahotsak/si1.wav");
 	loadSound("instrumentuak/ahotsak/do2.wav");
 	loadSound("miren/ahotsak.wav");
+	loadSound("miren/ximon.wav");
+}
+
+void simonSoinuak(){
+	loadSound("miren/irabazi.wav");
+	loadSound("miren/galdu.wav");
 }
