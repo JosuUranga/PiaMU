@@ -15,16 +15,39 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 				modua = 0;
 				break;
 			case SDL_SCANCODE_1:
-				instrumentuakAukeratu(1);
+				if(notakSakatuta[8]==0){
+					instrumentuakAukeratu(1);
+					playSound(8,9);
+					notakSakatuta[8]=1;
+				}
 				break;
 			case SDL_SCANCODE_2:
-				instrumentuakAukeratu(2);
+				if(notakSakatuta[8]==0){
+					instrumentuakAukeratu(2);
+					playSound(8,9);
+					notakSakatuta[8]=1;
+				}
 				break;
 			case SDL_SCANCODE_3:
-				instrumentuakAukeratu(3);
+				if(notakSakatuta[8]==0){
+					instrumentuakAukeratu(3);
+					playSound(8,9);
+					notakSakatuta[8]=1;
+				}
 				break;
 			case SDL_SCANCODE_4:
-				instrumentuakAukeratu(4);
+				if(notakSakatuta[8]==0){
+					instrumentuakAukeratu(4);
+					playSound(8,9);
+					notakSakatuta[8]=1;
+				}
+				break;
+			case SDL_SCANCODE_5:
+				if(notakSakatuta[8]==0){
+					instrumentuakAukeratu(5);
+					playSound(8,9);
+					notakSakatuta[8]=1;
+				}
 				break;
 			case SDL_SCANCODE_A:
 				if(notakSakatuta[0]==0){
@@ -129,6 +152,21 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak) {
 			case SDL_KEYUP:
 			switch (event.key.keysym.scancode)
 			{
+			case SDL_SCANCODE_1:
+				notakSakatuta[8]=0;
+				break;
+			case SDL_SCANCODE_2:
+				notakSakatuta[8]=0;
+				break;
+			case SDL_SCANCODE_3:
+				notakSakatuta[8]=0;
+				break;
+			case SDL_SCANCODE_4:
+				notakSakatuta[8]=0;
+				break;
+			case SDL_SCANCODE_5:
+				notakSakatuta[8]=0;
+				break;
 			case SDL_SCANCODE_A:
 				*notakSakatuta=0;
 				break;

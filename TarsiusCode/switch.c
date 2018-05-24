@@ -9,7 +9,6 @@ void baseaAukeratu(int aukera) {
 	case 2:
 		saxo();
 		break;
-
 	}
 }
 
@@ -40,6 +39,9 @@ void instrumentuakAukeratu(int aukera) {
 	case 4:
 		launchpad();
 		break;
+	case 5:
+		ahotsak();
+		break;
 	}
 }
 
@@ -54,6 +56,7 @@ void piano(){
 	loadSound("instrumentuak/piano/la1.wav");
 	loadSound("instrumentuak/piano/si1.wav");
 	loadSound("instrumentuak/piano/do2.wav");
+	loadSound("miren/pianoa.wav");
 }
 
 void organo(){
@@ -67,6 +70,7 @@ void organo(){
 	loadSound("instrumentuak/organo/la1.wav");
 	loadSound("instrumentuak/organo/si1.wav");
 	loadSound("instrumentuak/organo/do2.wav");
+	loadSound("miren/organoa.wav");
 }
 
 void guitarra(){
@@ -80,6 +84,7 @@ void guitarra(){
 	loadSound("instrumentuak/guitarra/la1.wav");
 	loadSound("instrumentuak/guitarra/si1.wav");
 	loadSound("instrumentuak/guitarra/do2.wav");
+	loadSound("miren/kitarra.wav");
 }
 
 void launchpad(){
@@ -93,4 +98,19 @@ void launchpad(){
 	loadSound("instrumentuak/launchpad/la1.wav");
 	loadSound("instrumentuak/launchpad/si1.wav");
 	loadSound("instrumentuak/launchpad/do2.wav");
+	loadSound("miren/launchpad.wav");
+}
+
+void ahotsak(){
+	soundsUnload();
+
+	loadSound("instrumentuak/ahotsak/do1.wav");
+	loadSound("instrumentuak/ahotsak/re1.wav");
+	loadSound("instrumentuak/ahotsak/mi1.wav");
+	loadSound("instrumentuak/ahotsak/fa1.wav");
+	loadSound("instrumentuak/ahotsak/sol1.wav");
+	loadSound("instrumentuak/ahotsak/la1.wav");
+	loadSound("instrumentuak/ahotsak/si1.wav");
+	loadSound("instrumentuak/ahotsak/do2.wav");
+	loadSound("miren/ahotsak.wav");
 }

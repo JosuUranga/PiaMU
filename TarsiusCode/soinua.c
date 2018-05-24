@@ -101,6 +101,7 @@ void audioTerminate(void)
 }
 
 void initSound() {
+	Mix_AllocateChannels(10);
 	loadSound("instrumentuak/piano/do1.wav");
 	loadSound("instrumentuak/piano/re1.wav");
 	loadSound("instrumentuak/piano/mi1.wav");

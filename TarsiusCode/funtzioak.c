@@ -1,9 +1,5 @@
 #include "funtzioak.h"
 
-
-
-
-
 void soinuakGrabatu(int nota,SOINUAKGRABATU **soinuak){
   SOINUAKGRABATU *aux1;
   aux1=*(soinuak);
@@ -34,7 +30,7 @@ void sartuSoinuakBuztanean(SOINUAKGRABATU *burua, SOINUAKGRABATU*berria) {
 
 		ptrAux = ptrAux->hurrengoSoinua;
 	}
-	berria->diferentzia=(double)(berria->noizSakatu - ptrAux->noizSakatu)*(0.00011764);
+	berria->diferentzia=((double)(berria->noizSakatu - ptrAux->noizSakatu)/CLOCKS_PER_SEC);
 	ptrAux->hurrengoSoinua = berria;
 }
 
@@ -54,6 +50,7 @@ void bistaratuSoinuaBat(SOINUAKGRABATU pelikula) {
 void soinuaErreproduzitu(SOINUAKGRABATU *soinuak){
 	SOINUAKGRABATU* ptr;
 	ptr = soinuak;
+
 	while (ptr != NULL) {
 		printf("%i\n",((int)((ptr->diferentzia)*1000)));
 		SDL_Delay((int)((ptr->diferentzia)*1000));

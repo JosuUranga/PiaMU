@@ -19,17 +19,18 @@ audioInit();
 initSound();
 SOINUAKGRABATU *soinuak;
 soinuak=NULL;
-int notakSakatuta[MAX_NOTAK];
-for	(int i=0; i<MAX_NOTAK;i++){
+int notakSakatuta[MAX_SOUNDS];
+for	(int i=0; i<MAX_SOUNDS;i++){
 	notakSakatuta[i]=0;
 }
 printf("Hello Tarsius\n");
 
 while(modua>0){
 	modua=teklaDetekzioa(notakSakatuta,modua,&soinuak);
-	SDL_Delay(1000/60);
 
 }
+
+audioTerminate();
 SDL_DestroyWindow(window);
 SDL_Quit();
 return 0;

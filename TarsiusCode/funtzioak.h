@@ -18,16 +18,17 @@ typedef struct soinuakGrabatu{
   struct soinuakGrabatu *hurrengoSoinua;
 }SOINUAKGRABATU;
 
+//Teklak detektatzeko
 int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak);
-void pianoMenu(int aukera);
-void instrumentuakAukeratu(int aukera);
-void instrumentuNotak(int aukera);
+//Grabatu eta erreproduzitu
+void soinuakGrabatu(int nota,SOINUAKGRABATU **soinuak);
 void sartuHasieran(SOINUAKGRABATU** burua, SOINUAKGRABATU *ptrBerria);
 void sartuSoinuakBuztanean(SOINUAKGRABATU *burua, SOINUAKGRABATU*berria);
 void bistaratuSoinuak(SOINUAKGRABATU* burua);
 void bistaratuSoinuaBat(SOINUAKGRABATU pelikula);
 void soinuaErreproduzitu(SOINUAKGRABATU *soinuak);
 void garbituZerrenda(SOINUAKGRABATU** burua);
+//Audio
 void audioInit();
 int loadSound(char *fileName);
 int loadTheMusic(char *fileName);
@@ -38,12 +39,16 @@ void musicUnload(void);
 void soundsUnload();
 void audioTerminate(void);
 void initSound();
+//Instrumentuak
 void instrumentuakAukeratu(int aukera);
 void piano();
 void organo();
 void guitarra();
 void launchpad();
+void ahotsak();
+//Baseak
 void baseaAukeratu(int aukera);
 void metro();
 void saxo();
+
 #endif
