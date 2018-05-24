@@ -1,5 +1,9 @@
 #include "funtzioak.h"
 
+
+
+
+
 void soinuakGrabatu(int nota,SOINUAKGRABATU **soinuak){
   SOINUAKGRABATU *aux1;
   aux1=*(soinuak);
@@ -50,10 +54,10 @@ void bistaratuSoinuaBat(SOINUAKGRABATU pelikula) {
 void soinuaErreproduzitu(SOINUAKGRABATU *soinuak){
 	SOINUAKGRABATU* ptr;
 	ptr = soinuak;
-
 	while (ptr != NULL) {
 		SDL_Delay((int)((ptr->diferentzia)*1000));
 		playSound(ptr->soinua,ptr->soinua);
+		printf("%d nota \n",ptr->soinua);
 		ptr = ptr->hurrengoSoinua;
 	}
 }
@@ -76,18 +80,18 @@ int simon(int gameOver,SOINUAKGRABATU **soinuakSimon){
 	int x;
 	if(gameOver==0){
 		x=rand()%8;
-		aux->diferentzia=0.5;
+		aux->diferentzia=0.7;
 		aux->soinua=x;
-		printf("%d\n",x);
 		aux->hurrengoSoinua=NULL;
+		aux->noizSakatu=0;
 		if(aux2 == NULL) {
-			printf("nepe\n");
 			sartuHasieran(soinuakSimon,aux);
 		}
 		else{
-
-			sartuSoinuakBuztanean(*soinuakSimon,aux);
-			printf("gordocabron\n");
+			while (aux2->hurrengoSoinua != NULL) {
+				aux2 = aux2->hurrengoSoinua;
+			}
+			aux2->hurrengoSoinua = aux;
 		}
 		soinuaErreproduzitu(*soinuakSimon);
 		gameOver=2;
@@ -96,19 +100,25 @@ int simon(int gameOver,SOINUAKGRABATU **soinuakSimon){
 }
 int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 	SOINUAKGRABATU *aux = soinuakSimon;
-	int gameOver=2;
-	while(aux->hurrengoSoinua != NULL) aux=aux->hurrengoSoinua;
-	aux->noizSakatu=(clock_t)nota;
-	aux=soinuakSimon;
-	while(aux!=NULL && aux->soinua == (int)aux->noizSakatu){
-		aux= aux->hurrengoSoinua;
-		gameOver =0;
+	int gameOver=2, kont=0;
+	while (aux->noizSakatu!=0){
+		aux=aux->hurrengoSoinua;
+		kont++;
+		if(kont==10) gameOver=1;
 	}
-	if(aux!=NULL){
+	aux->noizSakatu=(clock_t)nota;
 	if(aux->soinua != (int)aux->noizSakatu){
 		gameOver =1;
 	}
+	else {
+		if(aux->hurrengoSoinua==NULL) {
+			aux=soinuakSimon;
+			while(aux!=NULL){
+				aux->noizSakatu=0;
+				aux=aux->hurrengoSoinua;
+			}
+			gameOver=0;
+		}
 	}
-	printf("%d\n",gameOver);
 	return gameOver;
 }

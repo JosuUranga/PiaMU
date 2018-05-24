@@ -31,11 +31,11 @@ while(modua>0){
 	if(modua == 3){
 		gameOver = simon(gameOver, &soinuakSimon);
 		if(gameOver == 1){
+		garbituZerrenda(&soinuakSimon);
 		modua=1;
 		}
 	}
 }
-
 audioTerminate();
 SDL_DestroyWindow(window);
 SDL_Quit();
