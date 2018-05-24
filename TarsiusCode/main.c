@@ -33,6 +33,7 @@ while(modua>0){
 		if(gameOver == 1){
 		garbituZerrenda(&soinuakSimon);
 		modua=1;
+		gameOver =0;
 		}
 	}
 }
