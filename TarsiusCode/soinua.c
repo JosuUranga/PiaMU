@@ -9,6 +9,7 @@ void audioInit()
   if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
   {
     printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+    audioInit();
   }
 }
 
@@ -32,7 +33,6 @@ int loadTheMusic(char *fileName)
   {
     wasPlaying = (Mix_PlayingMusic() != 1);
     Mix_HaltMusic();
-    //Mix_FreeMusic(musika);
   }
   if ((musika = Mix_LoadMUS(fileName)) == NULL) return 0;
   if(wasPlaying)  Mix_PlayMusic(musika, -1);
@@ -41,6 +41,7 @@ int loadTheMusic(char *fileName)
 
 int playSound(int idSound,int channel)
 {
+	printf("%i sakatuta\n",idSound);
   if ((idSound<=0)&&(idSound>=soinuKop)) return -1;
 
   Mix_PlayChannel(channel, soinuak[idSound], 0);

@@ -2,31 +2,29 @@
 
 
 int main (void){
-SDL_Window* window = NULL;
 
-SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS);
-window = SDL_CreateWindow(
-	"PianoTarsius",
-	SDL_WINDOWPOS_CENTERED,
-	SDL_WINDOWPOS_CENTERED,
-	0,
-	0,
-	SDL_WINDOW_SHOWN
-);
+SDL_Init(SDL_INIT_AUDIO);
+int PIN[]={7,0,1,2,3,4,5,6,27,23,22,26,21,25};
+if (wiringPiSetup() < 0)return 1 ;
+
+for	(int i=0;i<15;i++){
+	pinMode(PIN[i],INPUT);
+	pullUpDnControl(PIN[i], PUD_UP);
+}
 srand((unsigned int)time(0));
 int modua=1;
 int gameOver = 0;
 audioInit();
 initSound();
-playSound(8,9); //Pianoa hasieratuta
+playSound(8,9); //Pianoa Hasieratuta
 SOINUAKGRABATU *soinuak=NULL;
 SOINUAKGRABATU *soinuakSimon=NULL;
-int notakSakatuta[MAX_NOTAK];
-for	(int i=0; i<MAX_NOTAK;i++){
+int notakSakatuta[MAX_TEKLAK];
+for	(int i=0; i<MAX_TEKLAK;i++){
 	notakSakatuta[i]=0;
 }
 while(modua>0){
-	modua=teklaDetekzioa(notakSakatuta,modua,&soinuak, &gameOver, &soinuakSimon);
+	modua=teklaDetekzioa(notakSakatuta,modua,&soinuak, &gameOver, &soinuakSimon,PIN);
 	if(modua == 3){
 		gameOver = simon(gameOver, &soinuakSimon);
 		if(gameOver == 1){
@@ -37,7 +35,7 @@ while(modua>0){
 	}
 }
 audioTerminate();
-SDL_DestroyWindow(window);
 SDL_Quit();
+system("reboot");
 return 0;
 }

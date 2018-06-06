@@ -21,8 +21,6 @@ void soinuakGrabatu(int nota,SOINUAKGRABATU **soinuak){
   }
 }
 
-
-
 void sartuHasieran(SOINUAKGRABATU** burua, SOINUAKGRABATU *ptrBerria) {
 	ptrBerria->hurrengoSoinua = *burua;
 	*(burua) = ptrBerria;
@@ -107,7 +105,6 @@ int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 	while (aux->noizSakatu!=0){
 		aux=aux->hurrengoSoinua;
 		kont++;
-		printf("%i\n",kont);
 		if(kont==5) {
 			SDL_Delay(500);
 			simonSoinuak();
@@ -137,6 +134,7 @@ int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 	return gameOver;
 }
 
+
 void gordeGrabazioa(SOINUAKGRABATU *burua){
   SOINUAKGRABATU *ptrAux1 = NULL;
 	ptrAux1 = burua;
@@ -148,12 +146,10 @@ void gordeGrabazioa(SOINUAKGRABATU *burua){
 			fprintf(fp, "%i %lf ", ptrAux1->soinua, ptrAux1->diferentzia);
 			ptrAux1 = ptrAux1->hurrengoSoinua;
 		}
-	}
-	else
-	{
+		fclose(fp);
+	}else{
 		printf("Ezin izan da fitxategia ireki\n");
 	}
-	fclose(fp);
 }
 
 void irakurriGrabazioa(SOINUAKGRABATU **burua){
@@ -168,7 +164,6 @@ void irakurriGrabazioa(SOINUAKGRABATU **burua){
     {
       ptrAux2->hurrengoSoinua = NULL;
       if (*burua == NULL) {
-
         *burua = ptrAux2;
         ptrAux1 = *burua;
       }
@@ -181,13 +176,14 @@ void irakurriGrabazioa(SOINUAKGRABATU **burua){
       }
       ptrAux2 = (SOINUAKGRABATU*)malloc(sizeof(SOINUAKGRABATU));
     }
+    fclose(fp);
   }
   else
   {
     printf("Ezin izan da fitxategia ireki\n");
   }
-  fclose(fp);
 }
+
 
 
 

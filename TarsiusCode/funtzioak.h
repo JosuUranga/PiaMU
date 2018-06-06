@@ -2,13 +2,15 @@
 #define FUNTZIOAK_H
 #define MAX_KAR 120
 #define MAX_SOUNDS 15
-#define MAX_NOTAK 15
+#define MAX_TEKLAK 20
+#define	PIFACE_BASE	200
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
 #include "SDL2/SDL.h"
+#include <wiringPi.h>
 #include "SDL2/SDL_mixer.h"
 
 typedef struct soinuakGrabatu{
@@ -18,7 +20,8 @@ typedef struct soinuakGrabatu{
   struct soinuakGrabatu *hurrengoSoinua;
 }SOINUAKGRABATU;
 
-int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *gameOver, SOINUAKGRABATU **soinuakSimon);
+
+int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *gameOver, SOINUAKGRABATU **soinuakSimon,int teklak[]);
 void pianoMenu(int aukera);
 void instrumentuakAukeratu(int aukera);
 void instrumentuNotak(int aukera);
@@ -56,4 +59,5 @@ int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota);
 void simonSoinuak(void);
 void irakurriGrabazioa(SOINUAKGRABATU **burua);
 void gordeGrabazioa(SOINUAKGRABATU *burua);
+
 #endif
