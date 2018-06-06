@@ -54,7 +54,6 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 				playSound(0,0);
 				if(modua==2){
 					soinuakGrabatu(0,soinuak);
-					bistaratuSoinuak(*soinuak);
 				}
 				if(modua == 3){
 					if(*gameOver==2) *gameOver = sartuSimon(*soinuakSimon, 0);
@@ -152,14 +151,24 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 				break;
 			case SDL_SCANCODE_E:
 				if(modua==2){
+					gordeGrabazioa(*soinuak);
 					modua=1;
+					playSound(10,9);
 				}else {
-					if(*soinuak!=NULL)garbituZerrenda(soinuak);
-					modua=2;
+				playSound(10,9);
+				if(*soinuak!=NULL)garbituZerrenda(soinuak);
+				modua=2;
+				SDL_Delay(200);
 				}
 				break;
 			case SDL_SCANCODE_R:
+				if(notakSakatuta[8]==0){
+				if(*soinuak!=NULL)garbituZerrenda(soinuak);
+				irakurriGrabazioa(soinuak);
 				soinuaErreproduzitu(*soinuak);
+				SDL_Delay(500);
+				notakSakatuta[8]=1;
+				}
 				break;
 			case SDL_SCANCODE_M:
 				baseaAukeratu(1);
@@ -221,6 +230,9 @@ int teklaDetekzioa(int notakSakatuta[],int modua,SOINUAKGRABATU **soinuak, int *
 				break;
 			case SDL_SCANCODE_K:
 				notakSakatuta[7]=0;
+				break;
+			case SDL_SCANCODE_R:
+				notakSakatuta[8]=0;
 				break;
 			default:
 				break;

@@ -57,7 +57,6 @@ void soinuaErreproduzitu(SOINUAKGRABATU *soinuak){
 	while (ptr != NULL) {
 		SDL_Delay((int)((ptr->diferentzia)*1000));
 		playSound(ptr->soinua,ptr->soinua);
-		printf("%d nota \n",ptr->soinua);
 		ptr = ptr->hurrengoSoinua;
 	}
 }
@@ -108,10 +107,11 @@ int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 	while (aux->noizSakatu!=0){
 		aux=aux->hurrengoSoinua;
 		kont++;
+		printf("%i\n",kont);
 		if(kont==5) {
 			SDL_Delay(500);
 			simonSoinuak();
-			playSound(10,9);
+			playSound(11,9);
 			SDL_Delay(1500);
 			gameOver=1;
 		}
@@ -121,7 +121,7 @@ int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 		gameOver =1;
 		SDL_Delay(500);
 		simonSoinuak();
-		playSound(11,10);
+		playSound(12,10);
 
 	}
 	else {
@@ -136,3 +136,58 @@ int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota){
 	}
 	return gameOver;
 }
+
+void gordeGrabazioa(SOINUAKGRABATU *burua){
+  SOINUAKGRABATU *ptrAux1 = NULL;
+	ptrAux1 = burua;
+	FILE *fp;
+	fp = fopen("grabazioa.dat", "wb");
+	if (fp != NULL) {
+		while (ptrAux1!=NULL)
+		{
+			fprintf(fp, "%i %lf ", ptrAux1->soinua, ptrAux1->diferentzia);
+			ptrAux1 = ptrAux1->hurrengoSoinua;
+		}
+	}
+	else
+	{
+		printf("Ezin izan da fitxategia ireki\n");
+	}
+	fclose(fp);
+}
+
+void irakurriGrabazioa(SOINUAKGRABATU **burua){
+  SOINUAKGRABATU*ptrAux1 = NULL;
+  ptrAux1 = *burua;
+  SOINUAKGRABATU*ptrAux2 = NULL;
+  ptrAux2 =(SOINUAKGRABATU*)malloc(sizeof(SOINUAKGRABATU));
+  FILE *fp;
+  fp = fopen("grabazioa.dat", "rb");
+  if (fp != NULL) {
+    while (fscanf(fp, "%i %lf ", &ptrAux2->soinua, &ptrAux2->diferentzia) > 0)
+    {
+      ptrAux2->hurrengoSoinua = NULL;
+      if (*burua == NULL) {
+
+        *burua = ptrAux2;
+        ptrAux1 = *burua;
+      }
+      else
+      {
+    	 while (ptrAux1->hurrengoSoinua != NULL) {
+    		 ptrAux1 = ptrAux1->hurrengoSoinua;
+    	}
+    	  ptrAux1->hurrengoSoinua = ptrAux2;
+      }
+      ptrAux2 = (SOINUAKGRABATU*)malloc(sizeof(SOINUAKGRABATU));
+    }
+  }
+  else
+  {
+    printf("Ezin izan da fitxategia ireki\n");
+  }
+  fclose(fp);
+}
+
+
+

@@ -112,5 +112,6 @@ void initSound() {
 	loadSound("instrumentuak/piano/do2.wav");
 	loadSound("miren/pianoa.wav");
 	loadSound("miren/ximon.wav");
+	loadSound("miren/beep-09.wav");
 	loadTheMusic("bases/metronomo.wav");
 }

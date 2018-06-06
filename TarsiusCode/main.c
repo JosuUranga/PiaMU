@@ -18,6 +18,7 @@ int modua=1;
 int gameOver = 0;
 audioInit();
 initSound();
+playSound(8,9); //Pianoa hasieratuta
 SOINUAKGRABATU *soinuak=NULL;
 SOINUAKGRABATU *soinuakSimon=NULL;
 int notakSakatuta[MAX_NOTAK];

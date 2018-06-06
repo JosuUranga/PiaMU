@@ -54,4 +54,6 @@ void saxo();
 int simon(int gameOver,SOINUAKGRABATU **soinuakSimon);
 int sartuSimon(SOINUAKGRABATU *soinuakSimon, int nota);
 void simonSoinuak(void);
+void irakurriGrabazioa(SOINUAKGRABATU **burua);
+void gordeGrabazioa(SOINUAKGRABATU *burua);
 #endif
